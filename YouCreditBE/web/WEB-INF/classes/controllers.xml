@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controllers SYSTEM "dtds/controllers.dtd">
+
+<controllers>
+    
+    <!-- Environment variable:
+    <env-var name="YouCredit_DEFAULT_YEAR" value="2015"/> 
+    -->
+    
+    <!-- Session object:
+    <object name="YouCredit_activeYear" class="java.lang.Integer" value="2015" 
+    	    scope="global"/>    
+    -->
+    
+    <!-- Controller:
+    <controller name="Teacher">
+    	<extends controller="Typical"/>
+    	<action name="new" icon="library-plus" keystroke="Control N"
+        	class="actions.CreateTeacher">
+    	</action>
+	</controller>    
+    --><env-var name="Utilizador" value="99999" />
+	<controller name="Gerar">
+		<action class="com.iscte.youcredit.actions.ActionEntidadeGerarRating" name="CalcularRating" hidden="true" mode="detail" label="Calcular">
+			<use-object name="xava_view" ></use-object>
+		</action>
+		<action class="com.iscte.youcredit.actions.ActionSimulacaoGerarScoring" name="CalcularScoring" hidden="true" mode="detail" label="Calcular">
+			<use-object name="xava_view" />
+		</action>
+		<action class="com.iscte.youcredit.actions.ActionSimulacaoCalcularTotais" name="CalcularTotais" mode="detail" label="Calcular Totais">
+			<use-object name="xava_view" />
+		</action>
+	</controller>
+	<controller name="EN_Entidade">
+		<extends controller="Typical" ></extends><!--Para ficarem todas as opções por defeito-->
+		<action
+			class="com.iscte.youcredit.actions.ActionEntidadeActualizarCRM"
+			name="ActualizarCRM" mode="detail" label="Actualizar CRM">
+		</action>
+		<action
+			class="com.iscte.youcredit.actions.ActionEntidadeEliminar"
+			name="delete" mode="detail" label="Inactivar ">
+		</action>
+	</controller>
+	<controller name="SM_Simulacao">
+		<extends controller="Typical" ></extends><!--Para ficarem todas as opções por defeito-->
+		<action
+			class="com.iscte.youcredit.actions.ActionSimulacaoActualizarCRM"
+			name="ActualizarCRM" mode="detail" label="Actualizar CRM">
+		</action>
+	</controller>
+	<controller name="LOG_CRM_Entidade">
+		<extends controller="Print" /></controller>
+	<controller name="LOG_CRM_Simulacao">
+		<extends controller="Print" /></controller>
+	<controller name="LOG_ParecerIC">
+		<extends controller="Print" /></controller>
+
+</controllers>
